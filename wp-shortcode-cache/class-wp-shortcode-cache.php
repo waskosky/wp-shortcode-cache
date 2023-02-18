@@ -267,6 +267,9 @@ class WP_Shortcode_Cache {
 	 * @return array Array of all relevant shortcode data.
 	 */
 	private function retrieve_cache_data( $tag, $attr, $matches ) {
+    	if(!is_array($attr))
+      		$attr = array();		
+		
 		if ( isset( $this->tags[ $tag ] ) ) {
 			$attr = $this->tags[ $tag ]->fill_external_data( $attr );
 		} else {
